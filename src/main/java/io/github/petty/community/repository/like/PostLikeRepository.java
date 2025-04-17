@@ -13,5 +13,5 @@ public interface PostLikeRepository extends JpaRepository<PostLike, Long> {
 
     long countByPostId(Long postId);
 
-    void deleteByPostIdAndUserId(Long postId, String userId);
+    void deleteByPostIdAndUserId(Long postId, UUID userId);
 }
