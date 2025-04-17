@@ -8,15 +8,22 @@ import lombok.Data;
 @Data
 public class PostReview {
 
+    public enum PetType {
+        강아지, 고양이, 햄스터, 앵무새, 거북이, 파충류, 기타
+    }
+
     @Id
     private Long postId;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @MapsId
     @JoinColumn(name = "post_id")
     private Post post;
 
     private String petName;
-    private String petType;
+
+    @Enumerated(EnumType.STRING)
+    private PetType petType;
+
     private String region;
 }

@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.UUID;
 
 @Repository
 public interface CommentRepository extends JpaRepository<Comment, Long> {
@@ -17,5 +18,5 @@ public interface CommentRepository extends JpaRepository<Comment, Long> {
     // 3. 댓글 삭제 → deleteById(Long id) (JpaRepository 기본 제공)
 
     // 4. 본인 댓글인지 확인 (삭제 권한 확인용)
-    boolean existsByIdAndUserId(Long id, String userId);
+    boolean existsByIdAndUserId(Long id, UUID userId);
 }

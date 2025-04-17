@@ -11,6 +11,10 @@ import java.time.LocalDateTime;
 @Data
 public class Post {
 
+    public enum PostType {
+        QNA, REVIEW, SHOWOFF
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -19,10 +23,14 @@ public class Post {
     @JoinColumn(name = "user_id")
     private User user;
 
+    @Column(nullable = false, length = 50)
     private String title;
+
+    @Column(nullable = false, length = 2000)
     private String content;
 
-    private String postType; // ENUM 쓰면 더 좋지만 우선 문자열
+    @Enumerated(EnumType.STRING)
+    private PostType postType;
 
     private String region;
     private boolean isResolved;
