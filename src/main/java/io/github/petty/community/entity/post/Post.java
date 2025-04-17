@@ -2,13 +2,16 @@ package io.github.petty.community.entity.post;
 
 import io.github.petty.community.entity.user.User;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "posts")
-@Data
+@Getter
+@Setter
+@ToString(exclude = "post")
+@EqualsAndHashCode(exclude = "post")
 public class Post {
 
     public enum PostType {
@@ -31,9 +34,6 @@ public class Post {
 
     @Enumerated(EnumType.STRING)
     private PostType postType;
-
-    private String region;
-    private boolean isResolved;
 
     private LocalDateTime createdAt = LocalDateTime.now();
     private LocalDateTime updatedAt = LocalDateTime.now();

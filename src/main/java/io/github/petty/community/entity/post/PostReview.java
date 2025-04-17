@@ -1,11 +1,14 @@
 package io.github.petty.community.entity.post;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 @Entity
 @Table(name = "post_review")
-@Data
+@Getter
+@Setter
+@ToString(exclude = "post")
+@EqualsAndHashCode(of = "postId")
 public class PostReview {
 
     public enum PetType {
@@ -20,10 +23,13 @@ public class PostReview {
     @JoinColumn(name = "post_id")
     private Post post;
 
+    @Column(nullable = false)
     private String petName;
 
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private PetType petType;
 
+    @Column(nullable = false)
     private String region;
 }

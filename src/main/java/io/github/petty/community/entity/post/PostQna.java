@@ -1,11 +1,14 @@
 package io.github.petty.community.entity.post;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 @Entity
 @Table(name = "post_qna")
-@Data
+@Getter
+@Setter
+@ToString(exclude = "post")
+@EqualsAndHashCode(exclude = "post")
 public class PostQna {
 
     public enum PetType {

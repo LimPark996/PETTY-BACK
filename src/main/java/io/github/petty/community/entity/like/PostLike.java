@@ -3,13 +3,17 @@ package io.github.petty.community.entity.like;
 import io.github.petty.community.entity.post.Post;
 import io.github.petty.community.entity.user.User;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "post_likes")
-@Data
+@Getter
+@Setter
+@ToString(exclude = {"post", "user"})
+@EqualsAndHashCode(of = "id")
+@Table(name = "post_likes",
+              uniqueConstraints = @UniqueConstraint(columnNames = {"post_id", "user_id"}))
 public class PostLike {
 
     @Id
