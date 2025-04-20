@@ -1,0 +1,122 @@
+ <!DOCTYPE html>
+    <html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>여행 후기 작성</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f9f9f9;
+                margin: 0;
+                padding: 0;
+            }
+            .container {
+                max-width: 700px;
+                margin: 40px auto;
+                background: white;
+                padding: 30px;
+                border-radius: 12px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            }
+            h2 {
+                margin-bottom: 25px;
+                font-size: 1.5rem;
+            }
+            label {
+                display: block;
+                margin: 15px 0 5px;
+                font-weight: bold;
+            }
+            input[type="text"],
+            select,
+            textarea {
+                width: 100%;
+                padding: 10px;
+                font-size: 1rem;
+                border: 1px solid #ccc;
+                border-radius: 6px;
+                box-sizing: border-box;
+            }
+            textarea {
+                height: 150px;
+            }
+            .radio-group {
+                display: flex;
+                gap: 15px;
+                margin-top: 10px;
+            }
+            .radio-group label {
+                font-weight: normal;
+            }
+            .image-upload {
+                margin-top: 20px;
+                padding: 20px;
+                border: 2px dashed #ccc;
+                border-radius: 6px;
+                text-align: center;
+                background-color: #fafafa;
+            }
+            .actions {
+                display: flex;
+                justify-content: flex-end;
+                margin-top: 20px;
+            }
+            .actions button {
+                padding: 10px 20px;
+                margin-left: 10px;
+                border: none;
+                border-radius: 6px;
+                font-size: 1rem;
+                cursor: pointer;
+            }
+            .cancel {
+                background-color: #e0e0e0;
+            }
+            .submit {
+                background-color: #ffc107;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+    <div class="container">
+        <h2>여행 후기 작성</h2>
+        <form id="postForm">
+            <label for="title">제목</label>
+            <input type="text" id="title" placeholder="제목을 입력해주세요" maxlength="50">
+
+            <label for="region">여행 장소</label>
+            <input type="text" id="region" placeholder="여행 장소를 입력해주세요">
+
+            <label for="petName">반려동물 이름</label>
+            <input type="text" id="petName" placeholder="반려동물 이름을 입력해주세요">
+
+            <label>반려동물 종류</label>
+            <div class="radio-group">
+                <label><input type="radio" name="petType" value="DOG"> 강아지</label>
+                <label><input type="radio" name="petType" value="CAT"> 고양이</label>
+                <label><input type="radio" name="petType" value="RABBIT"> 토끼</label>
+                <label><input type="radio" name="petType" value="HAMSTER"> 햄스터</label>
+                <label><input type="radio" name="petType" value="PARROT"> 앵무새</label>
+                <label><input type="radio" name="petType" value="REPTILE"> 파충류</label>
+                <label><input type="radio" name="petType" value="OTHER"> 기타</label>
+            </div>
+
+            <label for="content">내용</label>
+            <textarea id="content" maxlength="2000" placeholder="여행 경험을 자유롭게 작성해주세요"></textarea>
+
+            <div class="image-upload">
+                <p>📸 이미지 추가</p>
+                <input type="file" id="imageFiles" multiple accept="image/*">
+                <p>최대 5개의 이미지를 업로드할 수 있습니다.</p>
+            </div>
+
+            <div class="actions">
+                <button t ype="button" class="cancel">취소</button>
+                <button type="submit" class="submit">저장하기</button>
+            </div>
+        </form>
+    </div>
+    <script src="/js/common/form.js"></script>
+    </body>
+    </html>
