@@ -2,12 +2,14 @@ package io.github.petty.vision.controller;
 
 import io.github.petty.vision.service.VisionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 @RequestMapping("/vision")
+@ConditionalOnProperty(name = "together.api.enabled", havingValue = "true", matchIfMissing = false) //추가
 public class VisionController {
 
     @GetMapping("/upload")

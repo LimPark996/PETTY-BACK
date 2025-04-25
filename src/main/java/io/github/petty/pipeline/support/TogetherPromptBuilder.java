@@ -3,10 +3,12 @@ package io.github.petty.pipeline.support;
 import io.github.petty.pipeline.service.PromptGeneratorService;
 import io.github.petty.pipeline.service.TogetherService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
+@ConditionalOnProperty(name = "together.api.enabled", havingValue = "true", matchIfMissing = false) //추가
 public class TogetherPromptBuilder {
 
     private final TogetherService togetherService;

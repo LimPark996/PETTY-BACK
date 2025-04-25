@@ -7,6 +7,7 @@ import org.springframework.ai.document.Document;
 import org.springframework.ai.embedding.EmbeddingModel;
 import org.springframework.ai.embedding.EmbeddingResponse;
 import org.springframework.ai.vectorstore.*;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Service;
 import io.github.petty.llm.dto.EmbeddingResult;
 import java.util.Arrays;
@@ -19,6 +20,7 @@ import java.util.stream.Collectors;
 @Slf4j
 @Service
 @RequiredArgsConstructor
+@ConditionalOnProperty(name = "spring.ai.enabled", havingValue = "true", matchIfMissing = false) //추가
 public class VectorStoreService {
     private final VectorStore vectorStore;
     private final EmbeddingService embeddingService;

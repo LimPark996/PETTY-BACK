@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.petty.pipeline.model.dto.TogetherRequestDTO;
 import io.github.petty.pipeline.model.dto.TogetherResponseDTO;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Service;
 
 import java.net.URI;
@@ -13,6 +14,7 @@ import java.net.http.HttpResponse;
 import java.util.List;
 
 @Service
+@ConditionalOnProperty(name = "together.api.enabled", havingValue = "true", matchIfMissing = false) //추가
 public class TogetherServiceImpl implements TogetherService {
     @Value("${together.api.url}")
     private String apiUrl;

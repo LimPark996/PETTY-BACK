@@ -3,6 +3,7 @@ package io.github.petty.llm.service;
 import io.github.petty.llm.common.AreaCode;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ai.document.Document;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,6 +14,7 @@ import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
+@ConditionalOnProperty(name = "spring.ai.enabled", havingValue = "true", matchIfMissing = false) //추가
 public class RecommendServiceImpl implements RecommendService {
     // RecommendController를 RecommendService로 분리
     private final VectorStoreService vectorStoreService;
